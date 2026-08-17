@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#07131d">
+  <meta name="description" content="Virtual Tour 360 interaktif destinasi wisata Kabupaten Gresik.">
+  <title>Jelajah Gresik — Virtual Tour 360°</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- NAMA: [ISI NAMA] | NIM: [ISI NIM] | KELAS: IF209 | MATA KULIAH: Pemrograman Web 1 -->
+
+  <div id="splash" class="splash">
+    <div class="splash-orb orb-a"></div><div class="splash-orb orb-b"></div>
+    <div class="splash-card">
+      <div class="brand-mark"><img id="splashLogo" src="assets/logo/logo.svg" alt="Logo Jelajah Gresik"></div>
+      <span class="eyebrow">VIRTUAL TOUR 360°</span>
+      <h1 id="splashTitle">Jelajah Gresik</h1>
+      <p id="splashSubtitle">Rasakan pengalaman menjelajah destinasi Gresik secara imersif.</p>
+      <div class="splash-actions">
+        <button id="startBtn" class="primary-btn"><i class="fa-solid fa-play"></i> Mulai Jelajah</button>
+        <button id="howBtn" class="ghost-btn"><i class="fa-solid fa-circle-info"></i> Cara menggunakan</button>
+      </div>
+      <div class="splash-meta"><span><i class="fa-solid fa-location-dot"></i> Kabupaten Gresik</span><span><i class="fa-solid fa-vr-cardboard"></i> 360°</span><span><i class="fa-solid fa-mobile-screen"></i> Responsive</span></div>
+    </div>
+  </div>
+
+  <header id="topbar" class="topbar is-hidden">
+    <div class="top-left">
+      <button id="menuBtn" class="glass-btn" aria-label="Daftar lokasi"><i class="fa-solid fa-bars"></i></button>
+      <div class="brand-mini"><img src="assets/logo/logo.svg" alt=""><div><strong>JELAJAH GRESIK</strong><small>VIRTUAL TOUR 360°</small></div></div>
+    </div>
+    <div class="scene-heading"><span id="categoryPill">DESTINASI</span><h2 id="sceneTitle">Selamat Datang</h2></div>
+    <div class="top-actions">
+      <button id="favoriteBtn" class="glass-btn" aria-label="Favorit"><i class="fa-regular fa-heart"></i></button>
+      <button id="infoBtn" class="glass-btn" aria-label="Informasi lokasi"><i class="fa-solid fa-circle-info"></i></button>
+      <button id="shareBtn" class="glass-btn" aria-label="Bagikan"><i class="fa-solid fa-share-nodes"></i></button>
+      <button id="mapBtn" class="glass-btn" aria-label="Peta"><i class="fa-solid fa-map-location-dot"></i></button>
+      <button id="audioBtn" class="glass-btn" aria-label="Audio"><i class="fa-solid fa-volume-high"></i></button>
+    </div>
+  </header>
+
+  <main id="viewer" class="viewer"></main>
+
+  <div id="hud" class="hud is-hidden">
+    <div class="hud-card"><i class="fa-regular fa-compass"></i><span id="yawReadout">0°</span></div>
+    <div class="scene-progress"><span id="sceneCount">01 / 12</span><div><span id="progressFill"></span></div></div>
+  </div>
+
+  <button id="homeBtn" class="home-fab is-hidden" aria-label="Kembali ke beranda"><i class="fa-solid fa-house"></i><span>HOME</span></button>
+
+  <div id="controls" class="viewer-controls is-hidden">
+    <button id="zoomIn" class="control-btn" title="Zoom in"><i class="fa-solid fa-plus"></i></button>
+    <button id="zoomOut" class="control-btn" title="Zoom out"><i class="fa-solid fa-minus"></i></button>
+    <button id="rotateBtn" class="control-btn" title="Auto rotate"><i class="fa-solid fa-rotate"></i></button>
+    <button id="gyroBtn" class="control-btn" title="Mode sensor"><i class="fa-solid fa-compass"></i></button>
+    <button id="fullscreenBtn" class="control-btn" title="Fullscreen"><i class="fa-solid fa-expand"></i></button>
+  </div>
+
+  <button id="nextBtn" class="edge-nav edge-next" aria-label="Lokasi berikutnya"><i class="fa-solid fa-arrow-right"></i></button>
+  <button id="prevBtn" class="edge-nav edge-prev" aria-label="Lokasi sebelumnya"><i class="fa-solid fa-arrow-left"></i></button>
+
+  <aside id="sidebar" class="drawer drawer-left">
+    <div class="drawer-head"><div><span class="eyebrow">EXPLORE</span><h2>Destinasi Gresik</h2></div><button id="closeSidebar" class="glass-btn"><i class="fa-solid fa-xmark"></i></button></div>
+    <div class="searchbox"><i class="fa-solid fa-magnifying-glass"></i><input id="searchInput" type="search" placeholder="Cari destinasi..."></div>
+    <div id="categoryFilters" class="chips"></div>
+    <div id="sceneList" class="scene-list"></div>
+    <div class="drawer-foot"><span id="favoriteCount">0 favorit</span><button id="favoritesOnly" class="text-btn"><i class="fa-regular fa-heart"></i> Favorit saja</button></div>
+  </aside>
+  <div id="drawerOverlay" class="drawer-overlay"></div>
+
+  <aside id="mapPanel" class="drawer drawer-right">
+    <div class="drawer-head"><div><span class="eyebrow">ORIENTASI</span><h2>Peta Jelajah</h2></div><button id="closeMap" class="glass-btn"><i class="fa-solid fa-xmark"></i></button></div>
+    <p class="panel-note">Posisi pin pada denah di bawah adalah contoh layout. Ganti <code>mapPosition</code> di data jika sudah memiliki peta lokasi yang sebenarnya.</p>
+    <div class="map-wrap"><img id="mapImage" src="assets/maps/denah.svg" alt="Denah wisata Gresik"><div id="mapMarkers"></div></div>
+    <div id="mapLegend" class="map-legend"></div>
+  </aside>
+  <div id="mapOverlay" class="drawer-overlay"></div>
+
+  <section id="detailPanel" class="detail-panel" aria-hidden="true">
+    <div class="detail-cover"><img id="detailImage" src="" alt=""><button id="closeDetail" class="floating-close"><i class="fa-solid fa-xmark"></i></button><div class="detail-gradient"></div><div class="detail-cover-text"><span id="detailCategory" class="pill"></span><h2 id="detailTitle"></h2></div></div>
+    <div class="detail-body">
+      <div class="quick-stats"><div><i class="fa-solid fa-ticket"></i><span id="detailTicket">—</span></div><div><i class="fa-regular fa-clock"></i><span id="detailHours">—</span></div><div><i class="fa-solid fa-location-dot"></i><span id="detailArea">Gresik</span></div></div>
+      <p id="detailDescription"></p>
+      <div class="detail-actions"><button id="detailFavorite" class="secondary-btn"><i class="fa-regular fa-heart"></i> Favorit</button><button id="detailShare" class="secondary-btn"><i class="fa-solid fa-share-nodes"></i> Bagikan</button></div>
+      <div class="source-box"><strong>Sumber materi</strong><a id="detailSource" href="#" target="_blank" rel="noopener">Buka sumber</a></div>
+    </div>
+  </section>
+
+  <div id="modal" class="modal is-hidden"><div class="modal-card"><button id="modalClose" class="floating-close"><i class="fa-solid fa-xmark"></i></button><div id="modalContent"></div></div></div>
+  <div id="toast" class="toast"></div>
+  <div id="loading" class="loading is-hidden"><div class="loader-ring"></div><strong>Memuat panorama…</strong><span id="loadingText">Menyiapkan pengalaman 360°</span></div>
+
+  <audio id="bgAudio" loop preload="none"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
