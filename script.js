@@ -15,7 +15,7 @@ const SETTINGS = {
   startScene: 'home',
   homeScene: 'home',
   logo: 'assets/logo/logo.svg',
-  backgroundAudio: '',
+  backgroundAudio: 'assets/audio/jelajah-gresik-sample.wav',
   autoRotate: true,
   autoRotateDelay: 5000,
   autoRotateSpeed: 1.5
@@ -50,9 +50,14 @@ const TOUR_DATA = {
     ], hotspots: []
   },
 
-  setigi: { title:'Setigi Gresik', category:'Alam', description:'Kawasan wisata bekas tambang yang dikembangkan menjadi destinasi dengan bukit batu kapur, telaga, dan berbagai elemen edutainment.', area:'Sekapuk, Panceng', ticket:'Rp15.000 dewasa*', hours:'08.00–17.00 WIB', image:'assets/panoramas/setigi.jpg', thumb:'assets/panoramas/setigi.jpg', mapPosition:{x:22,y:28}, source:'https://travel.detik.com/domestic-destination/d-7463296/10-wisata-gresik-yang-sayang-dilewatkan-keindahan-alam-hingga-sejarah', initialView:{pitch:0,yaw:0,hfov:105}, hotspots:[] },
+  setigi: { title:'Setigi Gresik', category:'Alam', description:'Kawasan wisata bekas tambang yang dikembangkan menjadi destinasi dengan bukit batu kapur, telaga, dan berbagai elemen edutainment.', area:'Sekapuk, Panceng', ticket:'Rp15.000 dewasa*', hours:'08.00–17.00 WIB', image:'assets/panoramas/setigi.jpg', thumb:'assets/panoramas/setigi.jpg', mapPosition:{x:22,y:28}, source:'https://travel.detik.com/domestic-destination/d-7463296/10-wisata-gresik-yang-sayang-dilewatkan-keindahan-alam-hingga-sejarah', initialView:{pitch:0,yaw:0,hfov:105}, hotspots:[
+    {type:'photo', pitch:7, yaw:-28, text:'Foto detail', image:'assets/images/setigi-detail.jpg', caption:'Contoh hotspot foto. Ganti dengan foto dokumentasi Setigi kamu.'},
+    {type:'video', pitch:-4, yaw:38, text:'Video', video:'assets/videos/jelajah-gresik-sample.mp4'}
+  ] },
   lontarSewu: { title:'Lontar Sewu', category:'Buatan', description:'Eduwisata keluarga di Desa Hendrosari dengan beragam wahana rekreasi untuk anak dan orang dewasa.', area:'Hendrosari, Menganti', ticket:'Mulai Rp8.000*', hours:'08.00–21.00 WIB', image:'assets/panoramas/lontar-sewu.jpg', thumb:'assets/panoramas/lontar-sewu.jpg', mapPosition:{x:31,y:61}, source:'https://travel.detik.com/domestic-destination/d-7463296/10-wisata-gresik-yang-sayang-dilewatkan-keindahan-alam-hingga-sejarah', initialView:{pitch:0,yaw:0,hfov:105}, hotspots:[] },
-  dalegan: { title:'Pantai Dalegan', category:'Bahari', description:'Pantai utara Gresik dengan area pasir dan aktivitas rekreasi air yang populer untuk wisata keluarga.', area:'Dalegan, Panceng', ticket:'Rp10.000*', hours:'07.00–17.00 WIB', image:'assets/panoramas/dalegan.jpg', thumb:'assets/panoramas/dalegan.jpg', mapPosition:{x:16,y:23}, source:'https://travel.detik.com/domestic-destination/d-7463296/10-wisata-gresik-yang-sayang-dilewatkan-keindahan-alam-hingga-sejarah', initialView:{pitch:0,yaw:0,hfov:105}, hotspots:[] },
+  dalegan: { title:'Pantai Dalegan', category:'Bahari', description:'Pantai utara Gresik dengan area pasir dan aktivitas rekreasi air yang populer untuk wisata keluarga.', area:'Dalegan, Panceng', ticket:'Rp10.000*', hours:'07.00–17.00 WIB', image:'assets/panoramas/dalegan.jpg', thumb:'assets/panoramas/dalegan.jpg', mapPosition:{x:16,y:23}, source:'https://travel.detik.com/domestic-destination/d-7463296/10-wisata-gresik-yang-sayang-dilewatkan-keindahan-alam-hingga-sejarah', initialView:{pitch:0,yaw:0,hfov:105}, hotspots:[
+    {type:'photo', pitch:8, yaw:30, image:'assets/images/dalegan-detail.jpg', caption:'Contoh hotspot foto Pantai Dalegan.'}
+  ] },
   malikIbrahim: { title:'Makam Sunan Gresik', category:'Religi', description:'Kompleks makam Maulana Malik Ibrahim di kawasan Gapuro Sukolilo, salah satu tujuan wisata religi yang dikenal di Gresik.', area:'Gapuro Sukolilo, Gresik', ticket:'Gratis*', hours:'24 jam*', image:'assets/panoramas/malik-ibrahim.jpg', thumb:'assets/panoramas/malik-ibrahim.jpg', mapPosition:{x:51,y:53}, source:'https://travel.detik.com/domestic-destination/d-7463296/10-wisata-gresik-yang-sayang-dilewatkan-keindahan-alam-hingga-sejarah', initialView:{pitch:0,yaw:0,hfov:105}, hotspots:[] },
   bawean: { title:'Pulau Bawean', category:'Bahari', description:'Pulau di wilayah Kabupaten Gresik dengan ragam lanskap seperti pantai, Danau Kastoba, dan air terjun.', area:'Bawean', ticket:'Gratis*', hours:'24 jam*', image:'assets/panoramas/bawean.jpg', thumb:'assets/panoramas/bawean.jpg', mapPosition:{x:80,y:19}, source:'https://travel.detik.com/domestic-destination/d-7463296/10-wisata-gresik-yang-sayang-dilewatkan-keindahan-alam-hingga-sejarah', initialView:{pitch:0,yaw:0,hfov:105}, hotspots:[] },
   ngipik: { title:'Telaga Ngipik', category:'Alam', description:'Telaga di tengah kawasan industri Gresik yang cocok untuk bersantai, piknik, dan menikmati suasana sore.', area:'Ngipik, Gresik', ticket:'Gratis + parkir*', hours:'24 jam*', image:'assets/panoramas/ngipik.jpg', thumb:'assets/panoramas/ngipik.jpg', mapPosition:{x:55,y:62}, source:'https://travel.detik.com/domestic-destination/d-7463296/10-wisata-gresik-yang-sayang-dilewatkan-keindahan-alam-hingga-sejarah', initialView:{pitch:0,yaw:0,hfov:105}, hotspots:[] },
